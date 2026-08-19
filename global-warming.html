@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="เว็บไซต์ให้ความรู้เรื่องภาวะโลกร้อน สาเหตุ ผลกระทบ และแนวทางช่วยลดโลกร้อน" />
+  <title>โลกของเรา | ภาวะโลกร้อน</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --green: #1f7a4d;
+      --green-dark: #0f4d35;
+      --green-light: #e9f7ef;
+      --orange: #ff8a3d;
+      --cream: #fffaf3;
+      --text: #17322a;
+      --muted: #5d746c;
+      --white: #ffffff;
+      --shadow: 0 14px 35px rgba(16, 62, 43, 0.12);
+    }
+
+    body {
+      font-family: "Tahoma", "Noto Sans Thai", sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.88);
+      border-bottom: 1px solid rgba(31, 122, 77, 0.08);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--green-dark);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(255, 138, 61, .18), transparent 28%),
+        radial-gradient(circle at 85% 35%, rgba(31, 122, 77, .18), transparent 32%),
+        linear-gradient(135deg, #fffaf3 0%, #edf8f1 100%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 60px;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(31, 122, 77, 0.1);
+      color: var(--green-dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.08;
+      margin-bottom: 22px;
+      color: var(--green-dark);
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--green);
+      box-shadow: 0 10px 24px rgba(31, 122, 77, .22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--green-dark);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(31, 122, 77, .18);
+      background: rgba(255,255,255,.7);
+      color: var(--green-dark);
+    }
+
+    .earth-card {
+      width: min(390px, 100%);
+      aspect-ratio: 1/1;
+      margin: auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 35% 30%, #9ad9ff 0 20%, transparent 21%),
+        radial-gradient(circle at 60% 40%, #66b76f 0 12%, transparent 13%),
+        radial-gradient(circle at 45% 65%, #5aa761 0 15%, transparent 16%),
+        radial-gradient(circle, #68c7f2 0 64%, #c9efff 65% 70%, transparent 71%);
+      box-shadow: 0 0 0 22px rgba(31,122,77,.05), 0 25px 70px rgba(30, 91, 66, .2);
+      position: relative;
+      animation: float 4.5s ease-in-out infinite;
+    }
+
+    .earth-card::after {
+      content: "🌱";
+      position: absolute;
+      bottom: 7%;
+      right: 7%;
+      background: white;
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      font-size: 2rem;
+    }
+
+    .earth-card .temp {
+      background: rgba(255,255,255,.92);
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-weight: 800;
+      color: #c95c16;
+      box-shadow: var(--shadow);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 44px;
+    }
+
+    .section-head span {
+      color: var(--orange);
+      font-weight: 800;
+      font-size: .9rem;
+      letter-spacing: .5px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 7px 0 12px;
+      color: var(--green-dark);
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.9);
+      padding: 28px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(31, 122, 77, .08);
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: var(--green-light);
+      display: grid;
+      place-items: center;
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: var(--green-dark);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .impact {
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .impact .section-head h2,
+    .impact .section-head p {
+      color: white;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .impact-box {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 25px 20px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .impact-box strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .action-panel {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .action-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #edf0ee;
+    }
+
+    .action-item:last-child {
+      border-bottom: none;
+    }
+
+    .action-number {
+      min-width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--green);
+      font-weight: 800;
+    }
+
+    .action-copy h3 {
+      color: var(--green-dark);
+      margin-bottom: 2px;
+    }
+
+    .action-copy p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .quote {
+      padding: 38px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #ff9f5c, #ff7d2c);
+      color: white;
+      box-shadow: 0 18px 45px rgba(255, 125, 44, .22);
+    }
+
+    .quote h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .quote p {
+      opacity: .94;
+      font-size: 1.03rem;
+    }
+
+    .pledge {
+      margin-top: 22px;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: white;
+      color: #b24a08;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .pledge-result {
+      margin-top: 12px;
+      font-weight: 700;
+      min-height: 24px;
+    }
+
+    footer {
+      background: #0b3424;
+      color: rgba(255,255,255,.82);
+      padding: 34px 0;
+      text-align: center;
+      font-size: .92rem;
+    }
+
+    .top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .earth-card {
+        width: 300px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home">🌍 OUR EARTH</a>
+        <div class="nav-links">
+          <a href="#about">ภาวะโลกร้อน</a>
+          <a href="#causes">สาเหตุ</a>
+          <a href="#impact">ผลกระทบ</a>
+          <a href="#action">สิ่งที่เราทำได้</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">🌿 Protect our planet</div>
+          <h1>โลกกำลัง<span>ร้อนขึ้น</span><br>และเราช่วยได้</h1>
+          <p>
+            ภาวะโลกร้อนเป็นปัญหาสิ่งแวดล้อมที่เกี่ยวข้องกับทุกคน
+            การเปลี่ยนพฤติกรรมเล็ก ๆ ในชีวิตประจำวัน
+            สามารถช่วยลดการใช้พลังงานและลดการปล่อยก๊าซเรือนกระจกได้
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#about">เรียนรู้เพิ่มเติม</a>
+            <a class="btn btn-outline" href="#action">เริ่มช่วยโลกวันนี้</a>
+          </div>
+        </div>
+
+        <div class="earth-card" aria-label="ภาพจำลองโลก">
+          <div class="temp">🌡️ Our planet needs care</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <span>GLOBAL WARMING</span>
+          <h2>ภาวะโลกร้อนคืออะไร?</h2>
+          <p>
+            คือแนวโน้มที่อุณหภูมิเฉลี่ยของโลกสูงขึ้นในระยะยาว
+            โดยกิจกรรมของมนุษย์ เช่น การเผาไหม้เชื้อเพลิงฟอสซิล
+            และการทำลายป่า มีส่วนเพิ่มก๊าซเรือนกระจกในชั้นบรรยากาศ
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="causes">
+      <div class="container">
+        <div class="section-head">
+          <span>CAUSES</span>
+          <h2>สาเหตุสำคัญ</h2>
+          <p>กิจกรรมหลายอย่างในชีวิตประจำวันของเรามีส่วนต่อการเปลี่ยนแปลงสภาพภูมิอากาศ</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🏭</div>
+            <h3>การใช้พลังงาน</h3>
+            <p>
+              การผลิตไฟฟ้าและการใช้เชื้อเพลิงจากถ่านหิน น้ำมัน
+              และก๊าซธรรมชาติ ทำให้เกิดการปล่อยก๊าซเรือนกระจก
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🚗</div>
+            <h3>การคมนาคม</h3>
+            <p>
+              รถยนต์ เครื่องบิน และระบบขนส่งที่พึ่งพาเชื้อเพลิงฟอสซิล
+              เป็นอีกแหล่งสำคัญของการปล่อยคาร์บอน
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🌳</div>
+            <h3>การลดลงของพื้นที่ป่า</h3>
+            <p>
+              ป่าช่วยดูดซับคาร์บอนไดออกไซด์
+              การตัดไม้และเปลี่ยนพื้นที่ป่าจึงลดความสามารถของธรรมชาติในการดูดซับคาร์บอน
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact" id="impact">
+      <div class="container">
+        <div class="section-head">
+          <span style="color:#ffb17d;">IMPACT</span>
+          <h2>ผลกระทบที่เกิดขึ้น</h2>
+          <p>การเปลี่ยนแปลงของภูมิอากาศสามารถส่งผลต่อธรรมชาติ เศรษฐกิจ สุขภาพ และวิถีชีวิตของมนุษย์</p>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-box">
+            <strong>🔥</strong>
+            คลื่นความร้อน
+          </div>
+          <div class="impact-box">
+            <strong>🌊</strong>
+            ระดับน้ำทะเลเพิ่ม
+          </div>
+          <div class="impact-box">
+            <strong>🌧️</strong>
+            สภาพอากาศสุดขั้ว
+          </div>
+          <div class="impact-box">
+            <strong>🐾</strong>
+            ระบบนิเวศเปลี่ยนแปลง
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="action">
+      <div class="container">
+        <div class="section-head">
+          <span>TAKE ACTION</span>
+          <h2>เราช่วยลดโลกร้อนได้อย่างไร?</h2>
+          <p>ไม่จำเป็นต้องเริ่มจากเรื่องใหญ่ การเปลี่ยนแปลงเล็ก ๆ เมื่อทำร่วมกันก็สร้างผลลัพธ์ได้</p>
+        </div>
+
+        <div class="actions">
+          <div class="action-panel">
+            <div class="action-item">
+              <div class="action-number">1</div>
+              <div class="action-copy">
+                <h3>ประหยัดพลังงาน</h3>
+                <p>ปิดไฟและอุปกรณ์ไฟฟ้าเมื่อไม่ใช้งาน และเลือกใช้อุปกรณ์ที่มีประสิทธิภาพ</p>
+              </div>
+            </div>
+
+            <div class="action-item">
+              <div class="action-number">2</div>
+              <div class="action-copy">
+                <h3>เดินทางอย่างยั่งยืน</h3>
+                <p>เดิน ปั่นจักรยาน ใช้ขนส่งสาธารณะ หรือเดินทางร่วมกันเมื่อเหมาะสม</p>
+              </div>
+            </div>
+
+            <div class="action-item">
+              <div class="action-number">3</div>
+              <div class="action-copy">
+                <h3>ลดขยะและพลาสติก</h3>
+                <p>ใช้ซ้ำ เลือกของที่ทนทาน แยกขยะ และลดของใช้แบบครั้งเดียวทิ้ง</p>
+              </div>
+            </div>
+
+            <div class="action-item">
+              <div class="action-number">4</div>
+              <div class="action-copy">
+                <h3>เพิ่มพื้นที่สีเขียว</h3>
+                <p>ปลูกและดูแลต้นไม้ พร้อมช่วยกันรักษาพื้นที่ธรรมชาติในชุมชน</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote">
+            <h3>“โลกมีเพียงใบเดียว”</h3>
+            <p>
+              เริ่มต้นจากหนึ่งการกระทำในวันนี้
+              แล้วชวนคนรอบตัวร่วมกันใช้ทรัพยากรอย่างรู้คุณค่า
+              เพื่อส่งต่อโลกที่น่าอยู่ให้คนรุ่นต่อไป
+            </p>
+            <button class="pledge" onclick="makePledge()">🌱 ฉันจะช่วยโลก</button>
+            <div class="pledge-result" id="pledgeResult"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>🌍 เว็บไซต์ตัวอย่าง HTML เรื่องภาวะโลกร้อน | เรียนรู้ • ลงมือทำ • รักษ์โลก</p>
+    </div>
+  </footer>
+
+  <button class="top" id="topBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    function makePledge() {
+      const box = document.getElementById("pledgeResult");
+      box.textContent = "ขอบคุณที่ร่วมดูแลโลก 💚 เริ่มจากสิ่งเล็ก ๆ วันนี้ได้เลย!";
+    }
+
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 450) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
