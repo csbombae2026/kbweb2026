@@ -3,13 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ครูบอม.คอม</title>
+  <title>โครงงานกลุ่ม</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, "Noto Sans Thai", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 15px;
+      color: #173b2b;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.75), transparent 30%),
+        linear-gradient(135deg, #dff7e8 0%, #e8f6ff 50%, #fff4d8 100%);
+    }
+
+    .project-card {
+      width: min(900px, 100%);
+      background: rgba(255,255,255,.94);
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 20px 55px rgba(31, 94, 66, .18);
+      border: 1px solid rgba(35, 130, 83, .12);
+    }
+
+    .badge {
+      width: fit-content;
+      margin: 0 auto 18px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #e7f7ed;
+      color: #18764a;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #135d3b;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #587066;
+      margin-bottom: 34px;
+    }
+
+    .info-box {
+      background: #f6fbf8;
+      border: 1px solid #dcefe3;
+      border-radius: 20px;
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed #d8e7dd;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: 800;
+      color: #1c6a47;
+    }
+
+    .value {
+      color: #334f43;
+    }
+
+    h2 {
+      color: #155f3e;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+
+    .members {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 18px;
+      counter-reset: member;
+      list-style: none;
+    }
+
+    .members li {
+      counter-increment: member;
+      background: #ffffff;
+      border: 1px solid #e3ede7;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #41594e;
+    }
+
+    .members li::before {
+      content: counter(member) ". ";
+      font-weight: 800;
+      color: #188453;
+    }
+
+    .teacher {
+      text-align: center;
+      margin-top: 26px;
+      padding: 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #155f3e, #238b5d);
+      color: white;
+    }
+
+    .teacher small {
+      display: block;
+      opacity: .85;
+      margin-bottom: 5px;
+    }
+
+    .teacher strong {
+      font-size: 1.25rem;
+    }
+
+    .button-wrap {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .enter-btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 14px;
+      background: #ff8a3d;
+      color: white;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(255, 138, 61, .28);
+      transition: .25s ease;
+    }
+
+    .enter-btn:hover {
+      transform: translateY(-3px);
+      background: #f47725;
+    }
+
+    .note {
+      text-align: center;
+      color: #71877d;
+      font-size: .86rem;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 650px) {
+      .project-card {
+        padding: 28px 20px;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .members {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <h1>ยินดีต้อนรับ เข้าสู่เว็บไซต์ ครูบอม.คอม</h1>
+  <main class="project-card">
+    <div class="badge">PROJECT PRESENTATION</div>
 
-  <a href="information.html">ไปหน้าข้อมูลส่วนตัว</a>
+    <h1>โครงงานกลุ่ม ..............</h1>
+    <p class="subtitle">ผลงานเว็บไซต์เพื่อการเรียนรู้</p>
+
+    <section class="info-box">
+      <div class="info-row">
+        <div class="label">เรื่อง</div>
+        <div class="value">...............................................................</div>
+      </div>
+
+      <div class="info-row">
+        <div class="label">ห้อง</div>
+        <div class="value">...............................................................</div>
+      </div>
+    </section>
+
+    <section class="info-box">
+      <h2>สมาชิกในกลุ่ม จำนวน 8 คน</h2>
+      <ol class="members">
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+        <li>...............................................................</li>
+      </ol>
+    </section>
+
+    <div class="teacher">
+      <small>นำเสนอ</small>
+      <strong>คุณครู ภาณุพันธุ์ ภาคาผล</strong>
+    </div>
+
+    <div class="button-wrap">
+      <a class="enter-btn" href="global-warming.html">เข้าสู่เว็บไซต์ 🌍</a>
+      <p class="note">ปุ่มนี้จะเปิดไฟล์ global-warming.html ที่อยู่ในโฟลเดอร์เดียวกัน</p>
+    </div>
+  </main>
 
 </body>
 </html>
